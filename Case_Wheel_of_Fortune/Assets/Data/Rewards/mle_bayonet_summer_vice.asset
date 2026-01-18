@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b2d7025f017348cca157d13bd5820d14, type: 3}
-  m_Name: RewardAssetSO
+  m_Name: mle_bayonet_summer_vice
   m_EditorClassIdentifier: 
-  uniqueKey: ui_icon_aviator_glasses_easter
+  uniqueKey: mle_bayonet_summer_vice
   type: 0
-  sprite: {fileID: 21300000, guid: 0367f83ff1370be4696306339adcd1ae, type: 3}
+  sprite: {fileID: 21300000, guid: e3212f8d031d3304d8abb6cbe89e0347, type: 3}
