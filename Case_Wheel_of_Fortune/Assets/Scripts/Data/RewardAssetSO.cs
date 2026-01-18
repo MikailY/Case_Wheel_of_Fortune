@@ -1,0 +1,12 @@
+using UnityEngine;
+
+namespace Data
+{
+    [CreateAssetMenu(menuName = "Create RewardAssetSO", fileName = "RewardAssetSO", order = 0)]
+    public class RewardAssetSO: ScriptableObject
+    {
+        public string uniqueKey;
+        public int type;
+        public Sprite sprite;
+    }
+}
