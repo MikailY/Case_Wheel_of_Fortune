@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,14 +16,18 @@ public class RewardsContainerComponent : MonoBehaviour
 
     private readonly List<RewardsContainerComponentWidget> _widgets = new();
 
-    public void Append(RewardModel model)
+    public void InsertReward(RewardModel model)
     {
-        //TODO check if reward already exist, if so increase amount DONT RECREATE WIRDGET
         var widget = Instantiate(widgetPrefab, targetTransform);
 
         _widgets.Add(widget);
 
         widget.Set(model);
+    }
+
+    public void UpdateReward(string uniqueKey, int amount)
+    {
+        _widgets.FirstOrDefault(x => x.UniqueKey == uniqueKey)?.UpdateAmount(amount);
     }
 
     public void Clear()

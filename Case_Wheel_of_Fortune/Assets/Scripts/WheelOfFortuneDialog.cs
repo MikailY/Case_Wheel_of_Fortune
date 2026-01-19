@@ -46,6 +46,7 @@ public class WheelOfFortuneDialog : MonoBehaviour
     private WheelOfFortuneDialogModel _model;
     private StageModel _currentStage;
     private int _currentRollIndex;
+    private List<RewardModel> _rewards = new();
 
     public void Init(WheelOfFortuneDialogModel model)
     {
@@ -115,7 +116,27 @@ public class WheelOfFortuneDialog : MonoBehaviour
             return;
         }
 
-        rewardsContainerComponent.Append(_currentStage.Rewards.ElementAtOrDefault(_currentRollIndex));
+        var reward = _currentStage.Rewards.ElementAtOrDefault(_currentRollIndex);
+
+        if (reward == null)
+        {
+            Debug.LogError("Reward is null???");
+            return;
+        }
+
+        if (_rewards.Exists(x => x.UniqueKey == reward.UniqueKey))
+        {
+            var rewardIndex = _rewards.FindIndex(x => x.UniqueKey == reward.UniqueKey);
+            var existingReward = _rewards[rewardIndex];
+            existingReward.Amount += reward.Amount;
+            _rewards[rewardIndex].Amount = existingReward.Amount;
+            rewardsContainerComponent.UpdateReward(existingReward.UniqueKey, existingReward.Amount);
+        }
+        else
+        {
+            _rewards.Add(reward);
+            rewardsContainerComponent.InsertReward(reward);
+        }
 
         var nextStage = _model.Stages.ElementAtOrDefault(_currentStage.Index);
 
