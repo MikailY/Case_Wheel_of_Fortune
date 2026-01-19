@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using DG.Tweening;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -38,6 +39,8 @@ public class WheelOfFortuneDialog : MonoBehaviour
     [SerializeField] private SpinContainerComponent spinContainerComponent;
     [SerializeField] private StagesContainerComponent stagesContainerComponent;
     [SerializeField] private RewardsContainerComponent rewardsContainerComponent;
+    [SerializeField] private BombNotificationComponent bombNotificationComponent;
+    [SerializeField] private CanvasGroup canvasGroup;
 
     private DialogStates _state;
     private WheelOfFortuneDialogModel _model;
@@ -71,6 +74,7 @@ public class WheelOfFortuneDialog : MonoBehaviour
         spinContainerComponent.OnSpinButtonClicked += SpinContainerComponentOnOnSpinButtonClicked;
         spinContainerComponent.OnSpinCompleted += SpinContainerComponentOnOnSpinCompleted;
         rewardsContainerComponent.OnExitButtonClicked += RewardsContainerComponentOnOnExitButtonClicked;
+        bombNotificationComponent.OnGiveUpButtonClicked += BombNotificationComponentOnOnGiveUpButtonClicked;
     }
 
     private void OnDisable()
@@ -78,6 +82,7 @@ public class WheelOfFortuneDialog : MonoBehaviour
         spinContainerComponent.OnSpinButtonClicked -= SpinContainerComponentOnOnSpinButtonClicked;
         spinContainerComponent.OnSpinCompleted -= SpinContainerComponentOnOnSpinCompleted;
         rewardsContainerComponent.OnExitButtonClicked -= RewardsContainerComponentOnOnExitButtonClicked;
+        bombNotificationComponent.OnGiveUpButtonClicked -= BombNotificationComponentOnOnGiveUpButtonClicked;
     }
 
     private void SpinContainerComponentOnOnSpinButtonClicked()
@@ -106,8 +111,7 @@ public class WheelOfFortuneDialog : MonoBehaviour
 
         if (_currentStage.BombIndex == _currentRollIndex)
         {
-            //TODO OPEN BOMB EXPLODED DIALOG
-            Debug.LogError("THERE IS A BOMB!!!!!!!!!");
+            bombNotificationComponent.Show();
             return;
         }
 
@@ -121,13 +125,27 @@ public class WheelOfFortuneDialog : MonoBehaviour
             return;
         }
 
+        spinContainerComponent.Set(nextStage);
+
         _currentStage = nextStage;
-        spinContainerComponent.Set(_currentStage);
         _state = DialogStates.WaitingToSpin;
     }
 
     private void RewardsContainerComponentOnOnExitButtonClicked()
     {
         Debug.Log("WheelOfFortuneDialog:RewardsContainerComponentOnOnExitButtonClicked");
+
+        canvasGroup.blocksRaycasts = false;
+        canvasGroup.interactable = false;
+
+        canvasGroup.DOFade(0, 1);
+    }
+
+    private void BombNotificationComponentOnOnGiveUpButtonClicked()
+    {
+        canvasGroup.blocksRaycasts = false;
+        canvasGroup.interactable = false;
+        canvasGroup.DOFade(0, 1);
+        bombNotificationComponent.Hide();
     }
 }
