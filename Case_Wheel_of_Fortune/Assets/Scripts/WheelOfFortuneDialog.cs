@@ -40,13 +40,15 @@ public class WheelOfFortuneDialog : MonoBehaviour
     [SerializeField] private StagesContainerComponent stagesContainerComponent;
     [SerializeField] private RewardsContainerComponent rewardsContainerComponent;
     [SerializeField] private BombNotificationComponent bombNotificationComponent;
+    [SerializeField] private NextZoneCounterComponent superZoneCounterComponent;
+    [SerializeField] private NextZoneCounterComponent safeZoneCounterComponent;
     [SerializeField] private CanvasGroup canvasGroup;
 
     private DialogStates _state;
     private WheelOfFortuneDialogModel _model;
     private StageModel _currentStage;
     private int _currentRollIndex;
-    private List<RewardModel> _rewards = new();
+    private readonly List<RewardModel> _rewards = new();
 
     public void Init(WheelOfFortuneDialogModel model)
     {
@@ -66,6 +68,8 @@ public class WheelOfFortuneDialog : MonoBehaviour
         rewardsContainerComponent.Clear();
         stagesContainerComponent.Set(model.Stages);
         spinContainerComponent.Set(_currentStage);
+        superZoneCounterComponent.Set(GetNextZoneIndexByType(2));
+        safeZoneCounterComponent.Set(GetNextZoneIndexByType(1));
 
         _state = DialogStates.WaitingToSpin;
     }
@@ -147,6 +151,8 @@ public class WheelOfFortuneDialog : MonoBehaviour
         }
 
         spinContainerComponent.Set(nextStage);
+        superZoneCounterComponent.Set(GetNextZoneIndexByType(2));
+        safeZoneCounterComponent.Set(GetNextZoneIndexByType(1));
 
         _currentStage = nextStage;
         _state = DialogStates.WaitingToSpin;
@@ -168,5 +174,11 @@ public class WheelOfFortuneDialog : MonoBehaviour
         canvasGroup.interactable = false;
         canvasGroup.DOFade(0, 1);
         bombNotificationComponent.Hide();
+    }
+
+    private int GetNextZoneIndexByType(int type)
+    {
+        var nextZone = _model.Stages.FirstOrDefault(x => x.Type == type && x.Index > _currentStage.Index);
+        return nextZone?.Index ?? -1;
     }
 }

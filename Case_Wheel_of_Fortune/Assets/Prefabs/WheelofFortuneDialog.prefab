@@ -683,6 +683,7 @@ GameObject:
   - component: {fileID: 4284946302847168763}
   - component: {fileID: 7010614005258599655}
   - component: {fileID: 660279747164301492}
+  - component: {fileID: 4165843143941094661}
   m_Layer: 5
   m_Name: SafeZoneContainer
   m_TagString: Untagged
@@ -763,6 +764,20 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &4165843143941094661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5927580919448245958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7043db833ac34c2e8b1aba69f718bb7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 7055225915398948348}
+  canvasGroup: {fileID: 660279747164301492}
 --- !u!1 &6427258472543274818
 GameObject:
   m_ObjectHideFlags: 0
@@ -1010,6 +1025,8 @@ MonoBehaviour:
   stagesContainerComponent: {fileID: 5941433329477734435}
   rewardsContainerComponent: {fileID: 4984627240025209569}
   bombNotificationComponent: {fileID: 8510103983022237854}
+  superZoneCounterComponent: {fileID: 2414136002378464076}
+  safeZoneCounterComponent: {fileID: 4165843143941094661}
   canvasGroup: {fileID: 6427258473189296766}
 --- !u!1 &6427258473759331947
 GameObject:
@@ -1478,6 +1495,7 @@ GameObject:
   - component: {fileID: 6951497924015768156}
   - component: {fileID: 3330074204575568891}
   - component: {fileID: 506250231574401152}
+  - component: {fileID: 2414136002378464076}
   m_Layer: 5
   m_Name: SuperZoneContainer
   m_TagString: Untagged
@@ -1558,6 +1576,20 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &2414136002378464076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6947420690808681057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7043db833ac34c2e8b1aba69f718bb7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 9182096364840985727}
+  canvasGroup: {fileID: 506250231574401152}
 --- !u!1 &7103701631739558023
 GameObject:
   m_ObjectHideFlags: 0
