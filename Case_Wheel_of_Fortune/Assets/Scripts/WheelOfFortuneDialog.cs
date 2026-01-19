@@ -150,6 +150,7 @@ public class WheelOfFortuneDialog : MonoBehaviour
             return;
         }
 
+        stagesContainerComponent.GoNext(nextStage.Index);
         spinContainerComponent.Set(nextStage);
         superZoneCounterComponent.Set(GetNextZoneIndexByType(2));
         safeZoneCounterComponent.Set(GetNextZoneIndexByType(1));

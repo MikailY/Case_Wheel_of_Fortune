@@ -6,8 +6,6 @@ using UnityEngine.UI;
 
 public class RewardsContainerComponent : MonoBehaviour
 {
-    //TODO POOLING!!!!!!!
-
     [SerializeField] private Transform targetTransform;
     [SerializeField] private RewardsContainerComponentWidget widgetPrefab;
     [SerializeField] private Button exitButton;
@@ -18,6 +16,7 @@ public class RewardsContainerComponent : MonoBehaviour
 
     public void InsertReward(RewardModel model)
     {
+        //TODO POOLING!!!!!!!
         var widget = Instantiate(widgetPrefab, targetTransform);
 
         _widgets.Add(widget);

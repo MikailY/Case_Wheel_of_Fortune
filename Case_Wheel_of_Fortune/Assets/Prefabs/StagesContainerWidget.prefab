@@ -33,10 +33,10 @@ RectTransform:
   m_Father: {fileID: 157430730772854905}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 47.4328, y: 50}
+  m_SizeDelta: {x: -4, y: -4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1684167288284716435
 CanvasRenderer:
@@ -93,13 +93,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 28.3
+  m_fontSize: 17.75
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 18
+  m_fontSizeMin: 16
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -173,8 +173,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -457.4139, y: 0.000011444}
-  m_SizeDelta: {x: 59, y: 59}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 36.2883, y: 38.561}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6833920651620553075
 CanvasRenderer:
@@ -197,14 +197,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b3f983ab8a578344792e19de5f6b99dd, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -229,8 +229,8 @@ MonoBehaviour:
   m_IgnoreLayout: 0
   m_MinWidth: -1
   m_MinHeight: -1
-  m_PreferredWidth: 59
-  m_PreferredHeight: 59
+  m_PreferredWidth: 36.2883
+  m_PreferredHeight: 38.561
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
@@ -247,3 +247,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   indexText: {fileID: 6570528138940534760}
+  backgroundImage: {fileID: 7129675147151613673}
+  typeConfigs:
+  - type: 0
+    color: {r: 0.7529412, g: 0.4745098, b: 0.21176471, a: 1}
+    disabledColor: {r: 0.4, g: 0.25208333, b: 0.112500004, a: 1}
+    activeColor: {r: 0, g: 0, b: 0, a: 1}
+    activeBackgroundColor: {r: 0.7529412, g: 0.4745098, b: 0.21176471, a: 1}
+  - type: 1
+    color: {r: 0.81960785, g: 0.81960785, b: 0.81960785, a: 1}
+    disabledColor: {r: 0.447, g: 0.447, b: 0.447, a: 1}
+    activeColor: {r: 0, g: 0, b: 0, a: 1}
+    activeBackgroundColor: {r: 0.81960785, g: 0.81960785, b: 0.81960785, a: 1}
+  - type: 2
+    color: {r: 1, g: 0.85490197, b: 0.31764707, a: 1}
+    disabledColor: {r: 0.603, g: 0.5155059, b: 0.1915412, a: 1}
+    activeColor: {r: 0, g: 0, b: 0, a: 1}
+    activeBackgroundColor: {r: 1, g: 0.85490197, b: 0.31764707, a: 1}
