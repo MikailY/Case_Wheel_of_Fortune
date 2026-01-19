@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5f472ecb2d242d28cc59fdb90dcaf3e, type: 3}
   m_Name: StageModelSO7
   m_EditorClassIdentifier: 
-  index: 0
+  index: 7
   type: 0
   rewards:
   - amount: 1

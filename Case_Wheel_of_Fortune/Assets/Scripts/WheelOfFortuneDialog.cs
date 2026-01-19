@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -12,6 +11,7 @@ public class WheelOfFortuneDialogModel
 public class StageModel
 {
     public int Index;
+    public int BombIndex;
     public int Type;
     public List<RewardModel> Rewards = new();
 }
@@ -35,24 +35,52 @@ public enum DialogStates
 
 public class WheelOfFortuneDialog : MonoBehaviour
 {
-    [SerializeField] private SpinContainerComponent spinContainer;
+    [SerializeField] private SpinContainerComponent spinContainerComponent;
+    [SerializeField] private StagesContainerComponent stagesContainerComponent;
+    [SerializeField] private RewardsContainerComponent rewardsContainerComponent;
 
     private DialogStates _state;
+    private WheelOfFortuneDialogModel _model;
     private StageModel _currentStage;
+    private int _currentRollIndex;
+
+    public void Init(WheelOfFortuneDialogModel model)
+    {
+        _state = DialogStates.Init;
+
+        var firstStage = model.Stages.ElementAtOrDefault(0);
+
+        if (firstStage == null)
+        {
+            Debug.LogError("First stage is null");
+            return;
+        }
+
+        _model = model;
+        _currentStage = firstStage;
+
+        rewardsContainerComponent.Clear();
+        stagesContainerComponent.Set(model.Stages);
+        spinContainerComponent.Set(_currentStage);
+
+        _state = DialogStates.WaitingToSpin;
+    }
 
     private void OnEnable()
     {
-        spinContainer.OnSpinButtonClicked += SpinContainerOnOnSpinButtonClicked;
-        spinContainer.OnSpinCompleted += SpinContainerOnOnSpinCompleted;
+        spinContainerComponent.OnSpinButtonClicked += SpinContainerComponentOnOnSpinButtonClicked;
+        spinContainerComponent.OnSpinCompleted += SpinContainerComponentOnOnSpinCompleted;
+        rewardsContainerComponent.OnExitButtonClicked += RewardsContainerComponentOnOnExitButtonClicked;
     }
 
     private void OnDisable()
     {
-        spinContainer.OnSpinButtonClicked -= SpinContainerOnOnSpinButtonClicked;
-        spinContainer.OnSpinCompleted -= SpinContainerOnOnSpinCompleted;
+        spinContainerComponent.OnSpinButtonClicked -= SpinContainerComponentOnOnSpinButtonClicked;
+        spinContainerComponent.OnSpinCompleted -= SpinContainerComponentOnOnSpinCompleted;
+        rewardsContainerComponent.OnExitButtonClicked -= RewardsContainerComponentOnOnExitButtonClicked;
     }
 
-    private void SpinContainerOnOnSpinButtonClicked()
+    private void SpinContainerComponentOnOnSpinButtonClicked()
     {
         Debug.Log("WheelOfFortuneDialog:SpinContainerOnOnSpinButtonClicked");
 
@@ -64,27 +92,42 @@ public class WheelOfFortuneDialog : MonoBehaviour
         var index = Random.Range(0, 8);
 
         Debug.Log(
-            $"WheelOfFortuneDialog:Spinning({index}={_currentStage.Rewards[index].Amount} {_currentStage.Rewards[index].UniqueKey})...");
+            $"WheelOfFortuneDialog:Spinning({index}=S{_currentStage.Index} {_currentStage.Rewards[index].Amount} {_currentStage.Rewards[index].UniqueKey})...");
 
-        spinContainer.Spin(index);
+        spinContainerComponent.Spin(index);
 
+        _currentRollIndex = index;
         _state = DialogStates.Spinning;
     }
 
-    private void SpinContainerOnOnSpinCompleted()
+    private void SpinContainerComponentOnOnSpinCompleted()
     {
         Debug.Log("WheelOfFortuneDialog:SpinContainerOnOnSpinCompleted");
 
+        if (_currentStage.BombIndex == _currentRollIndex)
+        {
+            //TODO OPEN BOMB EXPLODED DIALOG
+            Debug.LogError("THERE IS A BOMB!!!!!!!!!");
+            return;
+        }
+
+        rewardsContainerComponent.Append(_currentStage.Rewards.ElementAtOrDefault(_currentRollIndex));
+
+        var nextStage = _model.Stages.ElementAtOrDefault(_currentStage.Index);
+
+        if (nextStage == null)
+        {
+            Debug.LogError("Next stage is null (WIN OR BUG/ERROR)");
+            return;
+        }
+
+        _currentStage = nextStage;
+        spinContainerComponent.Set(_currentStage);
         _state = DialogStates.WaitingToSpin;
-        spinContainer.Set(_currentStage);
     }
 
-    public void Init(WheelOfFortuneDialogModel model)
+    private void RewardsContainerComponentOnOnExitButtonClicked()
     {
-        _currentStage = model.Stages.FirstOrDefault();
-
-        spinContainer.Set(_currentStage);
-
-        _state = DialogStates.WaitingToSpin;
+        Debug.Log("WheelOfFortuneDialog:RewardsContainerComponentOnOnExitButtonClicked");
     }
 }

@@ -14,6 +14,7 @@ namespace Data
     public class StageModelSO : ScriptableObject
     {
         public int index;
+        public int bombIndex;
         public int type;
         public StageRewardModel[] rewards = new StageRewardModel[8];
 //     [SerializeField] private StageRewardModel[] rewards = new StageRewardModel[REWARD_LENGTH];

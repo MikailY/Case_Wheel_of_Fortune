@@ -147,6 +147,7 @@ GameObject:
   - component: {fileID: 6833920651620553075}
   - component: {fileID: 7129675147151613673}
   - component: {fileID: 3219018228746451718}
+  - component: {fileID: 438151501865985831}
   m_Layer: 5
   m_Name: StagesContainerWidget
   m_TagString: Untagged
@@ -233,3 +234,16 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &438151501865985831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4281807597253438944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b77bb29af17742b8a7b8fc95cc8cae91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  indexText: {fileID: 6570528138940534760}

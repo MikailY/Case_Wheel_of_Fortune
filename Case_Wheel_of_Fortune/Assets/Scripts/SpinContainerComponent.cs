@@ -39,7 +39,14 @@ public class SpinContainerComponent : MonoBehaviour
 
         for (var i = 0; i < model.Rewards.Count; i++)
         {
-            widgets[i].Set(model.Rewards[i]);
+            if (model.BombIndex == i)
+            {
+                widgets[i].Set();
+            }
+            else
+            {
+                widgets[i].Set(model.Rewards[i]);
+            }
         }
     }
 

@@ -171,6 +171,8 @@ namespace Editor
                     {
                         var asset = ScriptableObject.CreateInstance<StageModelSO>();
 
+                        asset.index = i + 1;
+
                         for (var j = 0; j < 8; j++)
                         {
                             asset.rewards[j] = new StageRewardModel()
@@ -179,10 +181,13 @@ namespace Editor
                                 assetReference = _rewardAssets[j],
                             };
                         }
-                        AssetDatabase.CreateAsset(asset, $"Assets/Data/Stages/{nameof(StageModelSO)}{i}.asset");
+
+                        AssetDatabase.CreateAsset(asset, $"Assets/Data/Stages/{nameof(StageModelSO)}{i + 1}.asset");
                         stages.Add(asset);
                     }
+
                     _configAsset.stageModels = stages.ToArray();
+                    _configAsset.ValidateStages();
 
                     AssetDatabase.SaveAssets();
                     AssetDatabase.Refresh();
