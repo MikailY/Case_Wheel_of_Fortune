@@ -1155,6 +1155,22 @@ MonoBehaviour:
   - {fileID: 1785484478679412138}
   - {fileID: 962483345143494180}
   - {fileID: 2486648377824113685}
+  typeConfigs:
+  - type: 0
+    headerText: BRONZE SPIN
+    color: {r: 0.7529412, g: 0.4745098, b: 0.21176471, a: 1}
+    baseSprite: {fileID: 21300000, guid: 2de9306d3db927f47a14194c1365dea2, type: 3}
+    indicatorSprite: {fileID: 21300000, guid: 6b4e17b429a574a4f956bd380c8e4b76, type: 3}
+  - type: 1
+    headerText: SILVER SPIN
+    color: {r: 0.81960785, g: 0.81960785, b: 0.81960785, a: 1}
+    baseSprite: {fileID: 21300000, guid: 1626ade72e310da47972832fad01957e, type: 3}
+    indicatorSprite: {fileID: 21300000, guid: 0e6027304b429e64daf297e2c1c2b509, type: 3}
+  - type: 2
+    headerText: GOLDEN SPIN
+    color: {r: 1, g: 0.85490197, b: 0.31764707, a: 1}
+    baseSprite: {fileID: 21300000, guid: d9b6d97bc15bc1341a885cca02ab12f2, type: 3}
+    indicatorSprite: {fileID: 21300000, guid: 3753e8efc1baa334e8bf79becf338174, type: 3}
 --- !u!1 &6427258474238713711
 GameObject:
   m_ObjectHideFlags: 0

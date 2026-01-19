@@ -1,9 +1,20 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+
+[Serializable]
+public class SpinTypeConfigData
+{
+    public int type;
+    public string headerText;
+    public Color color;
+    public Sprite baseSprite;
+    public Sprite indicatorSprite;
+}
 
 public class SpinContainerComponent : MonoBehaviour
 {
@@ -13,6 +24,7 @@ public class SpinContainerComponent : MonoBehaviour
     [SerializeField] private Button spinButton;
     [SerializeField] private Transform rotateTarget;
     [SerializeField] private List<SpinContainerComponentWidget> widgets;
+    [SerializeField] private List<SpinTypeConfigData> typeConfigs;
 
     public event Action OnSpinButtonClicked;
     public event Action OnSpinCompleted;
@@ -21,21 +33,18 @@ public class SpinContainerComponent : MonoBehaviour
     {
         rotateTarget.eulerAngles = Vector3.zero;
 
-        switch (model.Type)
+        var typeConfig = typeConfigs.FirstOrDefault(x => x.type == model.Type);
+
+        if (typeConfig == null)
         {
-            case 0:
-                headerText.text = "BRONZE SPIN";
-                headerText.color = Color.red;
-                break;
-            case 1:
-                headerText.text = "SILVER SPIN";
-                headerText.color = Color.gray;
-                break;
-            case 2:
-                headerText.text = "GOLDEN SPIN";
-                headerText.color = Color.yellow;
-                break;
+            Debug.LogError("typeData not found");
+            return;
         }
+
+        headerText.text = typeConfig.headerText;
+        headerText.color = typeConfig.color;
+        spinBaseImage.sprite = typeConfig.baseSprite;
+        spinIndicatorImage.sprite = typeConfig.indicatorSprite;
 
         for (var i = 0; i < model.Rewards.Count; i++)
         {
