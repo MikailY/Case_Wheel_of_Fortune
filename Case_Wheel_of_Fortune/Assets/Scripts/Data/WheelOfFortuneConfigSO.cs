@@ -1,26 +1,9 @@
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor;
 using UnityEngine;
 
 namespace Data
 {
-    [CustomEditor(typeof(WheelOfFortuneConfigSO))]
-    public class WheelOfFortuneConfigSOEditor : Editor
-    {
-        public override void OnInspectorGUI()
-        {
-            var config = (WheelOfFortuneConfigSO)target;
-
-            if (GUILayout.Button($"Re Validate Stages"))
-            {
-                config.ValidateStages();
-            }
-
-            base.OnInspectorGUI();
-        }
-    }
-
     [CreateAssetMenu(menuName = "Create WheelOfFortuneConfigSO", fileName = "WheelOfFortuneConfigSO", order = 0)]
     public class WheelOfFortuneConfigSO : ScriptableObject
     {
