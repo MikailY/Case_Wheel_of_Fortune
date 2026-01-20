@@ -23,6 +23,7 @@ public class SpinContainerComponent : MonoBehaviour
     [SerializeField] private Image spinIndicatorImage;
     [SerializeField] private Button spinButton;
     [SerializeField] private Transform rotateTarget;
+    [SerializeField] private ScaleEffectComponent scaleEffectComponent;
     [SerializeField] private List<SpinContainerComponentWidget> widgets;
     [SerializeField] private List<SpinTypeConfigData> typeConfigs;
 
@@ -45,6 +46,7 @@ public class SpinContainerComponent : MonoBehaviour
         headerText.color = typeConfig.color;
         spinBaseImage.sprite = typeConfig.baseSprite;
         spinIndicatorImage.sprite = typeConfig.indicatorSprite;
+        scaleEffectComponent.Show();
 
         for (var i = 0; i < model.Rewards.Count; i++)
         {

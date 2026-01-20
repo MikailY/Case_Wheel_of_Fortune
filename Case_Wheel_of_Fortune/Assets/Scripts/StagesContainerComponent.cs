@@ -14,6 +14,16 @@ public class StagesContainerComponent : MonoBehaviour
 
     public void Set(List<StageModel> modelStages)
     {
+        if (_widgets.Count > 0)
+        {
+            foreach (var widget in _widgets)
+            {
+                Destroy(widget.gameObject);
+            }
+
+            _widgets.Clear();
+        }
+
         foreach (var modelStage in modelStages)
         {
             //TODO POOLING!!!!!!!

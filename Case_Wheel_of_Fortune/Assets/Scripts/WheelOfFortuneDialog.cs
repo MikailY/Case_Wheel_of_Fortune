@@ -27,7 +27,6 @@ public class RewardModel
 
 public enum DialogStates
 {
-    Init,
     WaitingToSpin,
     Spinning,
     GiveReward,
@@ -52,8 +51,6 @@ public class WheelOfFortuneDialog : BaseDialog
 
     public void Init(WheelOfFortuneDialogModel model)
     {
-        _state = DialogStates.Init;
-
         var firstStage = model.Stages.ElementAtOrDefault(0);
 
         if (firstStage == null)
@@ -67,6 +64,7 @@ public class WheelOfFortuneDialog : BaseDialog
 
         Show();
 
+        _rewards.Clear();
         rewardsContainerComponent.Clear();
         stagesContainerComponent.Set(model.Stages);
         spinContainerComponent.Set(_currentStage);
@@ -98,14 +96,9 @@ public class WheelOfFortuneDialog : BaseDialog
 
     private void SpinContainerComponentOnOnSpinButtonClicked()
     {
-        Debug.Log("WheelOfFortuneDialog:SpinContainerOnOnSpinButtonClicked");
-
         if (_state != DialogStates.WaitingToSpin) return;
 
         var index = Random.Range(0, 8);
-
-        Debug.Log(
-            $"WheelOfFortuneDialog:Spinning({index}=S{_currentStage.Index} {_currentStage.Rewards[index].Amount} {_currentStage.Rewards[index].UniqueKey})...");
 
         spinContainerComponent.Spin(index);
 
@@ -115,8 +108,6 @@ public class WheelOfFortuneDialog : BaseDialog
 
     private void SpinContainerComponentOnOnSpinCompleted()
     {
-        Debug.Log("WheelOfFortuneDialog:SpinContainerOnOnSpinCompleted");
-
         if (_currentStage.BombIndex == _currentRollIndex)
         {
             bombNotificationComponent.Show();
@@ -135,6 +126,7 @@ public class WheelOfFortuneDialog : BaseDialog
         {
             var rewardIndex = _rewards.FindIndex(x => x.UniqueKey == reward.UniqueKey);
             var existingReward = _rewards[rewardIndex];
+
             existingReward.Amount += reward.Amount;
             _rewards[rewardIndex].Amount = existingReward.Amount;
             rewardsContainerComponent.UpdateReward(existingReward.UniqueKey, existingReward.Amount);
@@ -153,20 +145,21 @@ public class WheelOfFortuneDialog : BaseDialog
             return;
         }
 
-        stagesContainerComponent.GoNext(nextStage.Index);
-        spinContainerComponent.Set(nextStage);
-        superZoneCounterComponent.Set(GetNextZoneIndexByType(2));
-        safeZoneCounterComponent.Set(GetNextZoneIndexByType(1));
+        DOVirtual.DelayedCall(0.5f, () =>
+        {
+            stagesContainerComponent.GoNext(nextStage.Index);
+            spinContainerComponent.Set(nextStage);
+            superZoneCounterComponent.Set(GetNextZoneIndexByType(2));
+            safeZoneCounterComponent.Set(GetNextZoneIndexByType(1));
 
-        _currentStage = nextStage;
-        _state = DialogStates.WaitingToSpin;
+            _currentStage = nextStage;
+            _state = DialogStates.WaitingToSpin;
+        });
     }
 
     private void RewardsContainerComponentOnOnExitButtonClicked()
     {
         if (_state == DialogStates.Spinning) return;
-
-        Debug.Log("WheelOfFortuneDialog:RewardsContainerComponentOnOnExitButtonClicked");
 
         Hide();
     }
