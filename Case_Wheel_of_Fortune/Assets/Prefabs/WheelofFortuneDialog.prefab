@@ -721,6 +721,7 @@ GameObject:
   - component: {fileID: 7010614005258599655}
   - component: {fileID: 660279747164301492}
   - component: {fileID: 4165843143941094661}
+  - component: {fileID: 7704212826100292311}
   m_Layer: 5
   m_Name: SafeZoneContainer
   m_TagString: Untagged
@@ -815,6 +816,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: {fileID: 7055225915398948348}
   canvasGroup: {fileID: 660279747164301492}
+  scaleEffectComponent: {fileID: 7704212826100292311}
+--- !u!114 &7704212826100292311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5927580919448245958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c855c35d81f94c0897d10fbe627a15d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  duration: 0.3
+  scaleAmount: 1.1
 --- !u!1 &6427258472543274818
 GameObject:
   m_ObjectHideFlags: 0
@@ -1533,6 +1550,7 @@ GameObject:
   - component: {fileID: 3330074204575568891}
   - component: {fileID: 506250231574401152}
   - component: {fileID: 2414136002378464076}
+  - component: {fileID: 4815320810272295231}
   m_Layer: 5
   m_Name: SuperZoneContainer
   m_TagString: Untagged
@@ -1627,6 +1645,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: {fileID: 9182096364840985727}
   canvasGroup: {fileID: 506250231574401152}
+  scaleEffectComponent: {fileID: 4815320810272295231}
+--- !u!114 &4815320810272295231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6947420690808681057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c855c35d81f94c0897d10fbe627a15d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  duration: 0.3
+  scaleAmount: 1.1
 --- !u!1 &7103701631739558023
 GameObject:
   m_ObjectHideFlags: 0
