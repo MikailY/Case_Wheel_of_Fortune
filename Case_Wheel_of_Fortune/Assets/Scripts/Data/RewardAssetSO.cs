@@ -6,7 +6,6 @@ namespace Data
     public class RewardAssetSO : ScriptableObject
     {
         public string uniqueKey;
-        public int type;
         public Sprite sprite;
     }
 }

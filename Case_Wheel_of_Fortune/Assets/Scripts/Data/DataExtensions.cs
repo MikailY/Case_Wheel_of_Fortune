@@ -9,7 +9,6 @@ namespace Data
             return new RewardModel()
             {
                 Amount = model.amount,
-                Type = model.assetReference.type,
                 Sprite = model.assetReference.sprite,
                 UniqueKey = model.assetReference.uniqueKey,
             };

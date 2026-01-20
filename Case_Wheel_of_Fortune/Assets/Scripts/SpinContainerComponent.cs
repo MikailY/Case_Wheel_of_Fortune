@@ -61,6 +61,25 @@ public class SpinContainerComponent : MonoBehaviour
         }
     }
 
+    public void Spin(int index)
+    {
+        var rotValue = Vector3.forward * (360f / 8f);
+        var angle = rotValue * index;
+        rotateTarget.DORotate(Vector3.back * (360 * 5) + angle, 4f, RotateMode.FastBeyond360)
+            .SetEase(Ease.OutFlash)
+            .OnComplete(() => OnSpinCompleted?.Invoke());
+    }
+
+    public void ShowSpinButton()
+    {
+        spinButton.interactable = true;
+    }
+
+    public void HideSpinButton()
+    {
+        spinButton.interactable = false;
+    }
+
     private void OnValidate()
     {
         if (spinButton == null)
@@ -80,14 +99,5 @@ public class SpinContainerComponent : MonoBehaviour
     private void Click()
     {
         OnSpinButtonClicked?.Invoke();
-    }
-
-    public void Spin(int index)
-    {
-        var rotValue = Vector3.forward * (360f / 8f);
-        var angle = rotValue * index;
-        rotateTarget.DORotate(Vector3.back * (360 * 5) + angle, 4f, RotateMode.FastBeyond360)
-            .SetEase(Ease.OutFlash)
-            .OnComplete(() => OnSpinCompleted?.Invoke());
     }
 }

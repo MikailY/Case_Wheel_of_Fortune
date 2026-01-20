@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using DG.Tweening;
@@ -38,7 +39,7 @@ public class StagesContainerComponent : MonoBehaviour
         targetTransform.anchoredPosition = Vector2.zero;
     }
 
-    public void GoNext(int index)
+    public void GoNext(int index, Action onComplete)
     {
         if (_distanceBetweenWidgets < 0)
         {
@@ -58,7 +59,11 @@ public class StagesContainerComponent : MonoBehaviour
         _activeWidget?.Disable();
 
         targetTransform.DOAnchorPosX(targetTransform.anchoredPosition.x + _distanceBetweenWidgets, 0.5f)
-            .OnComplete(() => { SetActive(index); });
+            .OnComplete(() =>
+            {
+                SetActive(index);
+                onComplete?.Invoke();
+            });
     }
 
     private void SetActive(int index)

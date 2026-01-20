@@ -42,6 +42,16 @@ public class RewardsContainerComponent : MonoBehaviour
         _widgets.Clear();
     }
 
+    public void ShowExitButton()
+    {
+        exitButton.gameObject.SetActive(true);
+    }
+
+    public void HideExitButton()
+    {
+        exitButton.gameObject.SetActive(false);
+    }
+
     private void OnValidate()
     {
         if (exitButton == null)

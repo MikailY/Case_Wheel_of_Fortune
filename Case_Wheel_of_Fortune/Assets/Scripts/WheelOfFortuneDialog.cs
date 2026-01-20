@@ -21,7 +21,6 @@ public class RewardModel
 {
     public string UniqueKey;
     public int Amount;
-    public int Type;
     public Sprite Sprite;
 }
 
@@ -29,8 +28,6 @@ public enum DialogStates
 {
     WaitingToSpin,
     Spinning,
-    GiveReward,
-    Failed,
 }
 
 public class WheelOfFortuneDialog : BaseDialog
@@ -72,6 +69,8 @@ public class WheelOfFortuneDialog : BaseDialog
         safeZoneCounterComponent.Set(GetNextZoneIndexByType(1));
 
         _state = DialogStates.WaitingToSpin;
+        spinContainerComponent.ShowSpinButton();
+        rewardsContainerComponent.ShowExitButton();
     }
 
     private void OnEnable()
@@ -104,13 +103,15 @@ public class WheelOfFortuneDialog : BaseDialog
 
         _currentRollIndex = index;
         _state = DialogStates.Spinning;
+        spinContainerComponent.HideSpinButton();
+        rewardsContainerComponent.HideExitButton();
     }
 
     private void SpinContainerComponentOnOnSpinCompleted()
     {
         if (_currentStage.BombIndex == _currentRollIndex)
         {
-            bombNotificationComponent.Show();
+            DOVirtual.DelayedCall(0.5f, () => { bombNotificationComponent.Show(); });
             return;
         }
 
@@ -141,20 +142,25 @@ public class WheelOfFortuneDialog : BaseDialog
 
         if (nextStage == null)
         {
-            missionCompletedComponent.Show();
+            DOVirtual.DelayedCall(0.5f, () => { missionCompletedComponent.Show(); });
             return;
         }
 
-        DOVirtual.DelayedCall(0.5f, () =>
+        stagesContainerComponent.GoNext(nextStage.Index, OnNextStageAnimationFinished);
+
+        return;
+
+        void OnNextStageAnimationFinished()
         {
-            stagesContainerComponent.GoNext(nextStage.Index);
             spinContainerComponent.Set(nextStage);
             superZoneCounterComponent.Set(GetNextZoneIndexByType(2));
             safeZoneCounterComponent.Set(GetNextZoneIndexByType(1));
 
             _currentStage = nextStage;
             _state = DialogStates.WaitingToSpin;
-        });
+            spinContainerComponent.ShowSpinButton();
+            rewardsContainerComponent.ShowExitButton();
+        }
     }
 
     private void RewardsContainerComponentOnOnExitButtonClicked()
