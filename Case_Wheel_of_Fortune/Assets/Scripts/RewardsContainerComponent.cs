@@ -9,6 +9,7 @@ public class RewardsContainerComponent : MonoBehaviour
     [SerializeField] private Transform targetTransform;
     [SerializeField] private RewardsContainerComponentWidget widgetPrefab;
     [SerializeField] private Button exitButton;
+    [SerializeField] private AutoScroller autoScroller;
 
     public event Action OnExitButtonClicked;
 
@@ -22,6 +23,8 @@ public class RewardsContainerComponent : MonoBehaviour
         _widgets.Add(widget);
 
         widget.Set(model);
+
+        autoScroller?.ScrollToBottom();
     }
 
     public void UpdateReward(string uniqueKey, int amount)
