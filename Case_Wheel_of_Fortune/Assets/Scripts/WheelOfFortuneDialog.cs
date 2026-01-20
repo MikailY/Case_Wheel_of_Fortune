@@ -65,6 +65,8 @@ public class WheelOfFortuneDialog : BaseDialog
         _model = model;
         _currentStage = firstStage;
 
+        Show();
+
         rewardsContainerComponent.Clear();
         stagesContainerComponent.Set(model.Stages);
         spinContainerComponent.Set(_currentStage);
@@ -98,10 +100,7 @@ public class WheelOfFortuneDialog : BaseDialog
     {
         Debug.Log("WheelOfFortuneDialog:SpinContainerOnOnSpinButtonClicked");
 
-        if (_state != DialogStates.WaitingToSpin)
-        {
-            return;
-        }
+        if (_state != DialogStates.WaitingToSpin) return;
 
         var index = Random.Range(0, 8);
 
@@ -165,6 +164,8 @@ public class WheelOfFortuneDialog : BaseDialog
 
     private void RewardsContainerComponentOnOnExitButtonClicked()
     {
+        if (_state == DialogStates.Spinning) return;
+
         Debug.Log("WheelOfFortuneDialog:RewardsContainerComponentOnOnExitButtonClicked");
 
         Hide();
@@ -180,7 +181,7 @@ public class WheelOfFortuneDialog : BaseDialog
     private void MissionCompletedComponentOnOnCollectRewardsButtonClicked()
     {
         Hide();
-        
+
         missionCompletedComponent.Hide();
     }
 

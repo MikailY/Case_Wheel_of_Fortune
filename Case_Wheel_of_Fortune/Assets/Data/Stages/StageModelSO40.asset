@@ -16,19 +16,19 @@ MonoBehaviour:
   bombIndex: 0
   type: 0
   rewards:
-  - amount: 13
-    assetReference: {fileID: 11400000, guid: 290011db7d3c95744b3111181170da8b, type: 2}
-  - amount: 7
-    assetReference: {fileID: 11400000, guid: 51d7444e78234954485ad88ff5212b65, type: 2}
-  - amount: 1
-    assetReference: {fileID: 11400000, guid: 4a6f46f0457b293438d3b5f49f74d30f, type: 2}
-  - amount: 1
-    assetReference: {fileID: 11400000, guid: 435c9dfac8f97f647b90779c2dcc6d83, type: 2}
-  - amount: 5
-    assetReference: {fileID: 11400000, guid: 00d805c3df579c54685f657705bfa41a, type: 2}
-  - amount: 4
-    assetReference: {fileID: 11400000, guid: 2195c66065202d54cb3428e840ea3025, type: 2}
+  - amount: 3
+    assetReference: {fileID: 11400000, guid: 650f86474263dd2448f36741bb57540f, type: 2}
+  - amount: 3
+    assetReference: {fileID: 11400000, guid: fc57a099f0e446e42b7cc374ff7be4e2, type: 2}
   - amount: 2
+    assetReference: {fileID: 11400000, guid: 2195c66065202d54cb3428e840ea3025, type: 2}
+  - amount: 3
+    assetReference: {fileID: 11400000, guid: b0aa494e500eae0479bf0808860c7c6f, type: 2}
+  - amount: 8
+    assetReference: {fileID: 11400000, guid: 15730b42e3ad6e141965035765b9a2ea, type: 2}
+  - amount: 5
+    assetReference: {fileID: 11400000, guid: 14c09ff3a6a6d2d4ba774784b2abb698, type: 2}
+  - amount: 12
+    assetReference: {fileID: 11400000, guid: ff27e6c90ebb9d24a8ca3980079ed098, type: 2}
+  - amount: 3
     assetReference: {fileID: 11400000, guid: 082972c176a3a054baa52eb4c325c542, type: 2}
-  - amount: 1
-    assetReference: {fileID: 11400000, guid: d9bd5b3e78bd0f74396555af3e8bed6e, type: 2}
