@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 728222451720587287}
   - component: {fileID: 7145084744534120923}
   - component: {fileID: 8403258709595965337}
+  - component: {fileID: 3357360371708663654}
   m_Layer: 5
   m_Name: RewardsContainerWidget
   m_TagString: Untagged
@@ -114,6 +115,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 3145073009420030601}
   text: {fileID: 2402874114944443638}
+  scaleEffectComponent: {fileID: 3357360371708663654}
+--- !u!114 &3357360371708663654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8262713279757682048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c855c35d81f94c0897d10fbe627a15d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  duration: 0.3
+  scaleAmount: 1.1
 --- !u!1 &8299691915506807850
 GameObject:
   m_ObjectHideFlags: 0

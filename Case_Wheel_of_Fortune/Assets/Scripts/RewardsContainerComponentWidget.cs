@@ -6,6 +6,7 @@ public class RewardsContainerComponentWidget : MonoBehaviour
 {
     [SerializeField] private Image image;
     [SerializeField] private TMP_Text text;
+    [SerializeField] private ScaleEffectComponent scaleEffectComponent;
 
     public string UniqueKey { get; private set; }
 
@@ -14,10 +15,14 @@ public class RewardsContainerComponentWidget : MonoBehaviour
         UniqueKey = model.UniqueKey;
         text.text = $"x{model.Amount}";
         image.sprite = model.Sprite;
+
+        scaleEffectComponent.Show();
     }
 
     public void UpdateAmount(int amount)
     {
         text.text = $"x{amount}";
+
+        scaleEffectComponent.Show();
     }
 }
