@@ -1,8 +1,11 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using Data;
 using UnityEditor;
 using UnityEngine;
 using Object = UnityEngine.Object;
+using Random = UnityEngine.Random;
 
 namespace Editor
 {
@@ -10,16 +13,15 @@ namespace Editor
     {
         private static DataGeneratorEditorWindow _currentWindow;
 
-        private WheelOfFortuneConfigSO _configAsset;
-        private List<RewardAssetSO> _rewardAssets;
-        private int _amount;
+        private DataGeneratorConfigSO _generatorConfig;
+        private int _stagesToGenerateAmount;
 
         private const float LABEL_WIDTH = 100;
         private const float BUTTON_WIDTH = 200;
         private const float SPACING = 10;
 
         [MenuItem("Custom Windows/Data Generator", isValidateFunction: false, priority: 0)]
-        static void OpenWindow()
+        private static void OpenWindow()
         {
             _currentWindow = (DataGeneratorEditorWindow)GetWindow(typeof(DataGeneratorEditorWindow));
             _currentWindow.titleContent = new GUIContent("Data Generator");
@@ -32,37 +34,23 @@ namespace Editor
         {
             if (TryLoadConfigAsset(out var config))
             {
-                _configAsset = config;
+                _generatorConfig = config;
             }
             else
             {
-                Debug.LogWarning($"Could not load {nameof(WheelOfFortuneConfigSO)}");
-            }
-
-            if (TryLoadRewardsAsset(out var rewardAssets))
-            {
-                if (rewardAssets.Count < 8)
-                {
-                    Debug.LogWarning($"{nameof(RewardAssetSO)} list count({rewardAssets.Count}) is less than 8");
-                }
-
-                _rewardAssets = rewardAssets;
-            }
-            else
-            {
-                Debug.LogWarning($"Could not load {nameof(RewardAssetSO)} list");
+                Debug.LogWarning($"Could not load {nameof(DataGeneratorConfigSO)}");
             }
 
             return;
 
-            static bool TryLoadConfigAsset(out WheelOfFortuneConfigSO configAsset)
+            static bool TryLoadConfigAsset(out DataGeneratorConfigSO configAsset)
             {
-                var guids = AssetDatabase.FindAssets($"t:{nameof(WheelOfFortuneConfigSO)}");
+                var guids = AssetDatabase.FindAssets($"t:{nameof(DataGeneratorConfigSO)}");
 
                 foreach (var guid in guids)
                 {
                     var path = AssetDatabase.GUIDToAssetPath(guid);
-                    var asset = AssetDatabase.LoadAssetAtPath<WheelOfFortuneConfigSO>(path);
+                    var asset = AssetDatabase.LoadAssetAtPath<DataGeneratorConfigSO>(path);
                     if (asset == null) continue;
                     configAsset = asset;
                     return true;
@@ -71,85 +59,33 @@ namespace Editor
                 configAsset = null;
                 return false;
             }
-
-            static bool TryLoadRewardsAsset(out List<RewardAssetSO> rewardAssets)
-            {
-                var guids = AssetDatabase.FindAssets($"t:{nameof(RewardAssetSO)}");
-                rewardAssets = new List<RewardAssetSO>();
-
-                Debug.Log($"TryLoadRewardsAsset:guids = length : {guids?.Length}");
-
-                foreach (var guid in guids)
-                {
-                    var path = AssetDatabase.GUIDToAssetPath(guid);
-                    var asset = AssetDatabase.LoadAssetAtPath<RewardAssetSO>(path);
-                    if (asset == null) continue;
-                    rewardAssets.Add(asset);
-                }
-
-                return rewardAssets.Count > 0;
-            }
         }
 
         private void OnGUI()
         {
-            // // Klasör yoksa oluştur
-            // if (!AssetDatabase.IsValidFolder(outputFolder))
-            // {
-            //     Directory.CreateDirectory(outputFolder);
-            //     AssetDatabase.Refresh();
-            // }
-            _configAsset =
-                EditorGUILayout.ObjectField(_configAsset, typeof(WheelOfFortuneConfigSO), false) as
-                    WheelOfFortuneConfigSO;
+            _generatorConfig =
+                EditorGUILayout.ObjectField(_generatorConfig, typeof(DataGeneratorConfigSO), false) as
+                    DataGeneratorConfigSO;
 
-            if (_configAsset == null)
+            if (_generatorConfig == null)
             {
                 if (!GUILayout.Button("Create Config Asset", GUILayout.Width(BUTTON_WIDTH))) return;
 
-                var asset = ScriptableObject.CreateInstance<WheelOfFortuneConfigSO>();
+                var asset = ScriptableObject.CreateInstance<DataGeneratorConfigSO>();
 
-                CreateAsset(asset, $"Assets/Data/{nameof(WheelOfFortuneConfigSO)}.asset");
+                CreateAsset(asset, $"Assets/Data/{nameof(DataGeneratorConfigSO)}.asset");
 
-                _configAsset = asset;
+                _generatorConfig = asset;
 
                 return;
             }
+
 
             GUILayout.Space(SPACING);
 
             using (new EditorGUILayout.HorizontalScope())
             {
                 GUILayout.FlexibleSpace();
-
-                // if (GUILayout.Button($"Generate Rewards from ", GUILayout.Width(BUTTON_WIDTH)))
-                // {
-                //     AssetDatabase.DeleteAsset("Assets/Data/Rewards");
-                //     AssetDatabase.CreateFolder("Assets/Data", "Rewards");
-                //
-                //     var guids = AssetDatabase.FindAssets("t:Texture2D", new[] { "Assets/Textures/Ui Icons" });
-                //
-                //     Debug.Log($"guids = length : {guids?.Length}");
-                //
-                //     foreach (var guid in guids)
-                //     {
-                //         var texturePath = AssetDatabase.GUIDToAssetPath(guid);
-                //         var sprite = AssetDatabase.LoadAssetAtPath<Sprite>(texturePath);
-                //
-                //         if (sprite == null)
-                //             continue;
-                //
-                //         var asset = ScriptableObject.CreateInstance<RewardAssetSO>();
-                //         asset.sprite = sprite;
-                //         asset.uniqueKey = sprite.name.Split("_").Skip(2)
-                //             .Aggregate((s, s1) => $"{s.ToLowerInvariant()}_{s1.ToLowerInvariant()}");
-                //
-                //         AssetDatabase.CreateAsset(asset, $"Assets/Data/Rewards/{asset.uniqueKey}.asset");
-                //     }
-                //
-                //     AssetDatabase.SaveAssets();
-                //     AssetDatabase.Refresh();
-                // }
 
                 var guiEnable = GUI.enabled;
 
@@ -159,35 +95,43 @@ namespace Editor
                     AssetDatabase.CreateFolder("Assets/Data", "Stages");
                 }
 
-                GUI.enabled = _amount > 0;
+                GUI.enabled = _stagesToGenerateAmount > 0;
 
-                if (GUILayout.Button($"Generate {_amount} Stage", GUILayout.Width(BUTTON_WIDTH)))
+                if (GUILayout.Button($"Generate {_stagesToGenerateAmount} Stage", GUILayout.Width(BUTTON_WIDTH)))
                 {
                     AssetDatabase.DeleteAsset("Assets/Data/Stages");
                     AssetDatabase.CreateFolder("Assets/Data", "Stages");
 
                     var stages = new List<StageModelSO>();
-                    for (var i = 0; i < _amount; i++)
+                    for (var i = 0; i < _stagesToGenerateAmount; i++)
                     {
+                        var rewardPerceivedValues = _generatorConfig.rewardPerceivedValues.ToList();
                         var asset = ScriptableObject.CreateInstance<StageModelSO>();
 
                         asset.index = i + 1;
 
                         for (var j = 0; j < 8; j++)
                         {
+                            var rewardPerceivedValue =
+                                rewardPerceivedValues[Random.Range(0, rewardPerceivedValues.Count)];
+
                             asset.rewards[j] = new StageRewardModel()
                             {
-                                amount = j + 1,
-                                assetReference = _rewardAssets[j],
+                                amount =
+                                    Math.Max(1,
+                                        (int)(Random.Range(1f * i, 10f * i) / rewardPerceivedValue.perceivedValue)),
+                                assetReference = rewardPerceivedValue.asset,
                             };
+
+                            rewardPerceivedValues.Remove(rewardPerceivedValue);
                         }
 
                         AssetDatabase.CreateAsset(asset, $"Assets/Data/Stages/{nameof(StageModelSO)}{i + 1}.asset");
                         stages.Add(asset);
                     }
 
-                    _configAsset.stageModels = stages.ToArray();
-                    _configAsset.ValidateStages();
+                    _generatorConfig.wheelOfFortuneConfigSo.stageModels = stages.ToArray();
+                    _generatorConfig.wheelOfFortuneConfigSo.ValidateStages();
 
                     AssetDatabase.SaveAssets();
                     AssetDatabase.Refresh();
@@ -201,7 +145,8 @@ namespace Editor
             using (new EditorGUILayout.HorizontalScope())
             {
                 GUILayout.Label("Generate amount:", GUILayout.Width(LABEL_WIDTH));
-                _amount = EditorGUILayout.IntField(_amount, GUILayout.ExpandWidth(true));
+                _stagesToGenerateAmount =
+                    EditorGUILayout.IntField(_stagesToGenerateAmount, GUILayout.ExpandWidth(true));
             }
         }
 

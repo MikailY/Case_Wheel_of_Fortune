@@ -13,21 +13,22 @@ MonoBehaviour:
   m_Name: StageModelSO30
   m_EditorClassIdentifier: 
   index: 30
+  bombIndex: 0
   type: 0
   rewards:
-  - amount: 1
-    assetReference: {fileID: 11400000, guid: 290011db7d3c95744b3111181170da8b, type: 2}
-  - amount: 2
-    assetReference: {fileID: 11400000, guid: 2195c66065202d54cb3428e840ea3025, type: 2}
-  - amount: 3
-    assetReference: {fileID: 11400000, guid: 0ec15669b767df44bb9106c323004503, type: 2}
   - amount: 4
+    assetReference: {fileID: 11400000, guid: 731f1bcd6d1a71a4b821690915a68304, type: 2}
+  - amount: 15
     assetReference: {fileID: 11400000, guid: eb283d3516baf8442acab555c6409684, type: 2}
-  - amount: 5
-    assetReference: {fileID: 11400000, guid: 96263efd34b195649ad11d29e235ba41, type: 2}
-  - amount: 6
-    assetReference: {fileID: 11400000, guid: 23f3cef95c211c94789080ad9b0f6476, type: 2}
-  - amount: 7
-    assetReference: {fileID: 11400000, guid: 435c9dfac8f97f647b90779c2dcc6d83, type: 2}
+  - amount: 1
+    assetReference: {fileID: 11400000, guid: 650f86474263dd2448f36741bb57540f, type: 2}
+  - amount: 3
+    assetReference: {fileID: 11400000, guid: d9bd5b3e78bd0f74396555af3e8bed6e, type: 2}
+  - amount: 3
+    assetReference: {fileID: 11400000, guid: f608f4099fdd2bd4c9f5dc94f8ce78d5, type: 2}
   - amount: 8
-    assetReference: {fileID: 11400000, guid: 00d805c3df579c54685f657705bfa41a, type: 2}
+    assetReference: {fileID: 11400000, guid: 290011db7d3c95744b3111181170da8b, type: 2}
+  - amount: 1
+    assetReference: {fileID: 11400000, guid: 435c9dfac8f97f647b90779c2dcc6d83, type: 2}
+  - amount: 3
+    assetReference: {fileID: 11400000, guid: 2195c66065202d54cb3428e840ea3025, type: 2}

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00d8756c96354e11960ca6c78ceb32eb, type: 3}
   m_Name: WheelOfFortuneConfigSO
   m_EditorClassIdentifier: 
-  silverSpinRate: 3
-  goldenSpinRate: 5
+  silverSpinRate: 5
+  goldenSpinRate: 30
   stageModels:
   - {fileID: 11400000, guid: 8ffa842ae3c00534a9b4acdf666ddaf9, type: 2}
   - {fileID: 11400000, guid: 58028d335ae6f3843b33cf56b5ef4f13, type: 2}
@@ -45,3 +45,23 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 53fbc0aab6f3aac46a7350efc82522ad, type: 2}
   - {fileID: 11400000, guid: d8eab3e1fcd6b064ba13c532c3d88404, type: 2}
   - {fileID: 11400000, guid: 68b49749096f87a4e8181e0e7a393540, type: 2}
+  - {fileID: 11400000, guid: 6ad9ff0fd21e22948b9a7fcba5b0fc9d, type: 2}
+  - {fileID: 11400000, guid: f5e3d0207fc8b7c4e95e14de19e5d288, type: 2}
+  - {fileID: 11400000, guid: 514637ebfe00afa4bb3855b403195c83, type: 2}
+  - {fileID: 11400000, guid: 288791a02d0699947831cb91ae28490c, type: 2}
+  - {fileID: 11400000, guid: 24ecd729356eeeb49a44f7d8f68542b5, type: 2}
+  - {fileID: 11400000, guid: b71e1d5f02d2dae44902674eeb0c8c6e, type: 2}
+  - {fileID: 11400000, guid: 9fc86205650ae774a9617739d608951e, type: 2}
+  - {fileID: 11400000, guid: db2448eda28b8c54a9a64e6dd1af582f, type: 2}
+  - {fileID: 11400000, guid: 14a923d869a818249ae1527b38e40cd4, type: 2}
+  - {fileID: 11400000, guid: 4d4b87ff5e8d1614bbe8f86fa3b62b34, type: 2}
+  - {fileID: 11400000, guid: b9df3bf0214c17f49acfa9721430c692, type: 2}
+  - {fileID: 11400000, guid: c41a31fd39a610944a0d494c275fb3e7, type: 2}
+  - {fileID: 11400000, guid: 26b20b2b2526a264d81424d3108d8de1, type: 2}
+  - {fileID: 11400000, guid: 750a6c1a38563ba498ea5deca594c888, type: 2}
+  - {fileID: 11400000, guid: 89d8125b0ba7e47408d1ae1983da2e29, type: 2}
+  - {fileID: 11400000, guid: 70f4db7afccf8954a8fef6dcb7a0eba9, type: 2}
+  - {fileID: 11400000, guid: 39668abc6056de04487a6a6140d0db7a, type: 2}
+  - {fileID: 11400000, guid: 9bd963c8e0225ed4da3fd87d71c85e7a, type: 2}
+  - {fileID: 11400000, guid: 8673de02d6c31964984a7784819e88f5, type: 2}
+  - {fileID: 11400000, guid: 6d360e5b4b8a24049af4f40d1c66fa61, type: 2}

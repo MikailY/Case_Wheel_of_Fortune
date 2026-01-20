@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5f472ecb2d242d28cc59fdb90dcaf3e, type: 3}
+  m_Name: StageModelSO56
+  m_EditorClassIdentifier: 
+  index: 56
+  bombIndex: 0
+  type: 0
+  rewards:
+  - amount: 2
+    assetReference: {fileID: 11400000, guid: 23f3cef95c211c94789080ad9b0f6476, type: 2}
+  - amount: 1
+    assetReference: {fileID: 11400000, guid: 67c132f7fae6b914ca75667d732aa900, type: 2}
+  - amount: 215
+    assetReference: {fileID: 11400000, guid: 9304d3f2f47c85d4693b1762d7cd587c, type: 2}
+  - amount: 1
+    assetReference: {fileID: 11400000, guid: 79ccbdb6e64cca841b14b4f72f5c33a1, type: 2}
+  - amount: 4
+    assetReference: {fileID: 11400000, guid: c5b85b595aeeda34d8f2c955230df9a7, type: 2}
+  - amount: 8
+    assetReference: {fileID: 11400000, guid: 15730b42e3ad6e141965035765b9a2ea, type: 2}
+  - amount: 1
+    assetReference: {fileID: 11400000, guid: 650f86474263dd2448f36741bb57540f, type: 2}
+  - amount: 13
+    assetReference: {fileID: 11400000, guid: f9d2b95d7ba280f42bad1862d0749b42, type: 2}
