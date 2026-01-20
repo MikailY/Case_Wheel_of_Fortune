@@ -34,15 +34,15 @@ public enum DialogStates
     Failed,
 }
 
-public class WheelOfFortuneDialog : MonoBehaviour
+public class WheelOfFortuneDialog : BaseDialog
 {
     [SerializeField] private SpinContainerComponent spinContainerComponent;
     [SerializeField] private StagesContainerComponent stagesContainerComponent;
     [SerializeField] private RewardsContainerComponent rewardsContainerComponent;
     [SerializeField] private BombNotificationComponent bombNotificationComponent;
+    [SerializeField] private MissionCompletedComponent missionCompletedComponent;
     [SerializeField] private NextZoneCounterComponent superZoneCounterComponent;
     [SerializeField] private NextZoneCounterComponent safeZoneCounterComponent;
-    [SerializeField] private CanvasGroup canvasGroup;
 
     private DialogStates _state;
     private WheelOfFortuneDialogModel _model;
@@ -80,6 +80,8 @@ public class WheelOfFortuneDialog : MonoBehaviour
         spinContainerComponent.OnSpinCompleted += SpinContainerComponentOnOnSpinCompleted;
         rewardsContainerComponent.OnExitButtonClicked += RewardsContainerComponentOnOnExitButtonClicked;
         bombNotificationComponent.OnGiveUpButtonClicked += BombNotificationComponentOnOnGiveUpButtonClicked;
+        missionCompletedComponent.OnCollectRewardsButtonClicked +=
+            MissionCompletedComponentOnOnCollectRewardsButtonClicked;
     }
 
     private void OnDisable()
@@ -88,6 +90,8 @@ public class WheelOfFortuneDialog : MonoBehaviour
         spinContainerComponent.OnSpinCompleted -= SpinContainerComponentOnOnSpinCompleted;
         rewardsContainerComponent.OnExitButtonClicked -= RewardsContainerComponentOnOnExitButtonClicked;
         bombNotificationComponent.OnGiveUpButtonClicked -= BombNotificationComponentOnOnGiveUpButtonClicked;
+        missionCompletedComponent.OnCollectRewardsButtonClicked -=
+            MissionCompletedComponentOnOnCollectRewardsButtonClicked;
     }
 
     private void SpinContainerComponentOnOnSpinButtonClicked()
@@ -146,7 +150,7 @@ public class WheelOfFortuneDialog : MonoBehaviour
 
         if (nextStage == null)
         {
-            Debug.LogError("Next stage is null (WIN OR BUG/ERROR)");
+            missionCompletedComponent.Show();
             return;
         }
 
@@ -163,18 +167,21 @@ public class WheelOfFortuneDialog : MonoBehaviour
     {
         Debug.Log("WheelOfFortuneDialog:RewardsContainerComponentOnOnExitButtonClicked");
 
-        canvasGroup.blocksRaycasts = false;
-        canvasGroup.interactable = false;
-
-        canvasGroup.DOFade(0, 1);
+        Hide();
     }
 
     private void BombNotificationComponentOnOnGiveUpButtonClicked()
     {
-        canvasGroup.blocksRaycasts = false;
-        canvasGroup.interactable = false;
-        canvasGroup.DOFade(0, 1);
+        Hide();
+
         bombNotificationComponent.Hide();
+    }
+
+    private void MissionCompletedComponentOnOnCollectRewardsButtonClicked()
+    {
+        Hide();
+        
+        missionCompletedComponent.Hide();
     }
 
     private int GetNextZoneIndexByType(int type)
