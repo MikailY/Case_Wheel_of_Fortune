@@ -9,18 +9,26 @@ public class GameEntryPoint : MonoBehaviour
     private void Start()
     {
         var stages = config.Get();
-        
+
         if (stages == null)
         {
             Debug.LogError("wofConfig is null");
             return;
         }
-        
+
         var model = new WheelOfFortuneDialogModel
         {
             Stages = stages,
         };
-        
+
+// #if UNITY_EDITOR
+//         //DISABLE BOMBS TEMPORARY FOR TESTING STUFF
+//         foreach (var modelStage in model.Stages)
+//         {
+//             modelStage.BombIndex = -1;
+//         }
+// #endif
+
         dialog.Init(model);
     }
 }
