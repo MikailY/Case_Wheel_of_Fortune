@@ -11,7 +11,6 @@ public class StagesContainerComponent : MonoBehaviour
 
     private readonly List<StagesContainerComponentWidget> _widgets = new();
     private StagesContainerComponentWidget _activeWidget;
-    private float _distanceBetweenWidgets = -1;
 
     public void Set(List<StageModel> modelStages)
     {
@@ -41,24 +40,12 @@ public class StagesContainerComponent : MonoBehaviour
 
     public void GoNext(int index, Action onComplete)
     {
-        if (_distanceBetweenWidgets < 0)
-        {
-            //TODO find another solution
-            var first = _widgets.ElementAtOrDefault(0)?.transform as RectTransform;
-            var second = _widgets.ElementAtOrDefault(1)?.transform as RectTransform;
-            var distance = first?.anchoredPosition.x - second?.anchoredPosition.x;
-            if (distance is null)
-            {
-                Debug.LogWarning("first second widget do not exist");
-                distance = 0;
-            }
-
-            _distanceBetweenWidgets = distance.Value;
-        }
-
         _activeWidget?.Disable();
 
-        targetTransform.DOAnchorPosX(targetTransform.anchoredPosition.x + _distanceBetweenWidgets, 0.5f)
+        var nextWidgetLocalPositionX =
+            _widgets.First(x => x.Index == index).transform.localPosition.x;
+
+        targetTransform.DOAnchorPosX(-nextWidgetLocalPositionX, 0.5f)
             .OnComplete(() =>
             {
                 SetActive(index);
