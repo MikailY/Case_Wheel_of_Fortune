@@ -48,8 +48,6 @@ MonoBehaviour:
     perceivedValue: 100
   - asset: {fileID: 11400000, guid: f9d2b95d7ba280f42bad1862d0749b42, type: 2}
     perceivedValue: 25
-  - asset: {fileID: 11400000, guid: ff27e6c90ebb9d24a8ca3980079ed098, type: 2}
-    perceivedValue: 25
   - asset: {fileID: 11400000, guid: 67c82a3dbff767d4ca2821463181b93e, type: 2}
     perceivedValue: 60
   - asset: {fileID: 11400000, guid: 64daa79d5c49d1646a2ca95e4c160a30, type: 2}
@@ -81,6 +79,4 @@ MonoBehaviour:
   - asset: {fileID: 11400000, guid: 73f3de827891ec94a9fa5a8158097b35, type: 2}
     perceivedValue: 25
   - asset: {fileID: 11400000, guid: 51d7444e78234954485ad88ff5212b65, type: 2}
-    perceivedValue: 25
-  - asset: {fileID: 11400000, guid: 731f1bcd6d1a71a4b821690915a68304, type: 2}
     perceivedValue: 25
