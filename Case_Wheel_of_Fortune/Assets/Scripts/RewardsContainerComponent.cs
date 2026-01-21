@@ -22,22 +22,28 @@ public class RewardsContainerComponent : MonoBehaviour
 
         _widgets.Add(widget);
 
-        widget.Set(model);
-
-        autoScroller?.ScrollToBottom();
+        widget.Init(model);
     }
 
     public void UpdateReward(string uniqueKey, int amount)
     {
-        _widgets.FirstOrDefault(x => x.UniqueKey == uniqueKey)?.UpdateAmount(amount);
+        _widgets.First(x => x.UniqueKey == uniqueKey).UpdateAmount(amount);
+    }
+
+    public RectTransform GetTargetRectTransform(string uniqueKey)
+    {
+        return _widgets.First(x => x.UniqueKey == uniqueKey).transform as RectTransform;
+    }
+
+    public void FocusTargetRectTransform(RectTransform rectTransform)
+    {
+        autoScroller?.ScrollToItem(rectTransform);
     }
 
     public void Clear()
     {
         foreach (var widget in _widgets)
-        {
             Destroy(widget.gameObject);
-        }
 
         _widgets.Clear();
     }

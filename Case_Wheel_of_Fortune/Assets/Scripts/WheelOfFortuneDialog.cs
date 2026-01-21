@@ -35,6 +35,7 @@ public class WheelOfFortuneDialog : BaseDialog
     [SerializeField] private SpinContainerComponent spinContainerComponent;
     [SerializeField] private StagesContainerComponent stagesContainerComponent;
     [SerializeField] private RewardsContainerComponent rewardsContainerComponent;
+    [SerializeField] private RewardAnimationComponent rewardAnimationComponent;
     [SerializeField] private BombNotificationComponent bombNotificationComponent;
     [SerializeField] private MissionCompletedComponent missionCompletedComponent;
     [SerializeField] private NextZoneCounterComponent superZoneCounterComponent;
@@ -115,42 +116,59 @@ public class WheelOfFortuneDialog : BaseDialog
             return;
         }
 
-        var reward = _currentStage.Rewards.ElementAtOrDefault(_currentRollIndex);
+        var rewardToCollect = _currentStage.Rewards.ElementAtOrDefault(_currentRollIndex);
 
-        if (reward == null)
+        if (rewardToCollect == null)
         {
-            Debug.LogError("Reward is null???");
+            Debug.LogError($"Current stage({_currentStage.Index}) reward({_currentRollIndex}) is null?");
             return;
         }
 
-        if (_rewards.Exists(x => x.UniqueKey == reward.UniqueKey))
-        {
-            var rewardIndex = _rewards.FindIndex(x => x.UniqueKey == reward.UniqueKey);
-            var existingReward = _rewards[rewardIndex];
+        RewardModel rewardAfterUpdate;
 
-            existingReward.Amount += reward.Amount;
-            _rewards[rewardIndex].Amount = existingReward.Amount;
-            rewardsContainerComponent.UpdateReward(existingReward.UniqueKey, existingReward.Amount);
+        rewardAnimationComponent.Set(rewardToCollect);
+
+        if (_rewards.Exists(x => x.UniqueKey == rewardToCollect.UniqueKey))
+        {
+            var existingReward = _rewards.First(x => x.UniqueKey == rewardToCollect.UniqueKey);
+
+            existingReward.Amount += rewardToCollect.Amount;
+
+            rewardAfterUpdate = existingReward;
         }
         else
         {
-            _rewards.Add(reward);
-            rewardsContainerComponent.InsertReward(reward);
+            _rewards.Add(rewardToCollect);
+
+            rewardsContainerComponent.InsertReward(rewardToCollect);
+
+            rewardAfterUpdate = rewardToCollect;
         }
 
-        var nextStage = _model.Stages.ElementAtOrDefault(_currentStage.Index);
+        var targetRectTransform = rewardsContainerComponent.GetTargetRectTransform(rewardToCollect.UniqueKey);
 
-        if (nextStage == null)
-        {
-            DOVirtual.DelayedCall(0.5f, () => { missionCompletedComponent.Show(); });
-            return;
-        }
+        rewardsContainerComponent.FocusTargetRectTransform(targetRectTransform);
 
-        stagesContainerComponent.GoNext(nextStage.Index, OnNextStageAnimationFinished);
+        rewardAnimationComponent.MoveTo(targetRectTransform, () => OnRewardAnimationComplete(rewardAfterUpdate));
 
         return;
 
-        void OnNextStageAnimationFinished()
+        void OnRewardAnimationComplete(RewardModel reward)
+        {
+            rewardsContainerComponent.UpdateReward(reward.UniqueKey, reward.Amount);
+
+            var nextStage = _model.Stages.ElementAtOrDefault(_currentStage.Index);
+
+            if (nextStage == null)
+            {
+                DOVirtual.DelayedCall(0.5f, () => { missionCompletedComponent.Show(); });
+                return;
+            }
+
+            stagesContainerComponent.GoNext(nextStage.Index, () => OnNextStageAnimationFinished(nextStage));
+        }
+
+        void OnNextStageAnimationFinished(StageModel nextStage)
         {
             spinContainerComponent.Set(nextStage);
             superZoneCounterComponent.Set(GetNextZoneIndexByType(2));

@@ -10,13 +10,11 @@ public class RewardsContainerComponentWidget : MonoBehaviour
 
     public string UniqueKey { get; private set; }
 
-    public void Set(RewardModel model)
+    public void Init(RewardModel model)
     {
         UniqueKey = model.UniqueKey;
-        text.text = $"x{model.Amount}";
+        text.text = "0";
         image.sprite = model.Sprite;
-
-        scaleEffectComponent.Show();
     }
 
     public void UpdateAmount(int amount)
