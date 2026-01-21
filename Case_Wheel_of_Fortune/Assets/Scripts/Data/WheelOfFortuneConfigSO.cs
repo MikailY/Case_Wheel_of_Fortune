@@ -30,7 +30,7 @@ namespace Data
                     stageModel.type = 2;
                     stageModel.bombIndex = -1;
                 }
-                else if (stageModel.index % silverSpinRate == 0)
+                else if (stageModel.index % silverSpinRate == 0 || stageModel.index == 1)
                 {
                     stageModel.type = 1;
                     stageModel.bombIndex = -1;
