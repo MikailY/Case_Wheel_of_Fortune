@@ -30,7 +30,7 @@ public enum DialogStates
     Spinning,
 }
 
-public class WheelOfFortuneDialog : BaseDialog
+public class WheelOfFortuneDialog : MonoBehaviour
 {
     [SerializeField] private SpinContainerComponent spinContainerComponent;
     [SerializeField] private StagesContainerComponent stagesContainerComponent;
@@ -59,8 +59,6 @@ public class WheelOfFortuneDialog : BaseDialog
 
         _model = model;
         _currentStage = firstStage;
-
-        Show();
 
         _rewards.Clear();
         rewardsContainerComponent.Clear();
@@ -185,21 +183,23 @@ public class WheelOfFortuneDialog : BaseDialog
     {
         if (_state == DialogStates.Spinning) return;
 
-        Hide();
+        rewardsContainerComponent.HideExitButton();
+
+        DOVirtual.DelayedCall(0.5f, () => Init(_model));
     }
 
     private void BombNotificationComponentOnOnGiveUpButtonClicked()
     {
-        Hide();
-
         bombNotificationComponent.Hide();
+
+        DOVirtual.DelayedCall(0.5f, () => Init(_model));
     }
 
     private void MissionCompletedComponentOnOnCollectRewardsButtonClicked()
     {
-        Hide();
-
         missionCompletedComponent.Hide();
+
+        DOVirtual.DelayedCall(0.5f, () => Init(_model));
     }
 
     private int GetNextZoneIndexByType(int type)

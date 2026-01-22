@@ -1827,9 +1827,9 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6427258473189296752}
   m_Enabled: 1
-  m_Alpha: 0
-  m_Interactable: 0
-  m_BlocksRaycasts: 0
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
 --- !u!114 &5029692443213791678
 MonoBehaviour:
@@ -1843,7 +1843,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe05145ac8da065449c7a2b398bf45b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvasGroup: {fileID: 6427258473189296766}
   spinContainerComponent: {fileID: 6037362440701153317}
   stagesContainerComponent: {fileID: 5941433329477734435}
   rewardsContainerComponent: {fileID: 4984627240025209569}
@@ -2171,7 +2170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 0
   m_OnCullStateChanged:
