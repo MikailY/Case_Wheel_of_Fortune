@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Data
+namespace WheelOfFortune.Data
 {
     [Serializable]
     public class StageRewardModel

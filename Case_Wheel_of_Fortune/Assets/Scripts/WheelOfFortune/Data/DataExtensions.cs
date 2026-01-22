@@ -1,6 +1,6 @@
 using System.Linq;
 
-namespace Data
+namespace WheelOfFortune.Data
 {
     public static class DataExtensions
     {

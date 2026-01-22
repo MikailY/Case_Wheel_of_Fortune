@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace Data
+namespace WheelOfFortune.Data
 {
     [CreateAssetMenu(menuName = "Create WheelOfFortuneConfigSO", fileName = "WheelOfFortuneConfigSO", order = 0)]
     public class WheelOfFortuneConfigSO : ScriptableObject

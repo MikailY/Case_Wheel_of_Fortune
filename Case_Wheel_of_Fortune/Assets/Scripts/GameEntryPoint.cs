@@ -1,5 +1,6 @@
-using Data;
 using UnityEngine;
+using WheelOfFortune;
+using WheelOfFortune.Data;
 
 public class GameEntryPoint : MonoBehaviour
 {
@@ -8,26 +9,10 @@ public class GameEntryPoint : MonoBehaviour
 
     private void Start()
     {
-        var stages = config.Get();
-
-        if (stages == null)
-        {
-            Debug.LogError("wofConfig is null");
-            return;
-        }
-
         var model = new WheelOfFortuneDialogModel
         {
-            Stages = stages,
+            Stages = config.Get(),
         };
-
-// #if UNITY_EDITOR
-//         //DISABLE BOMBS TEMPORARY FOR TESTING STUFF
-//         foreach (var modelStage in model.Stages)
-//         {
-//             modelStage.BombIndex = -1;
-//         }
-// #endif
 
         dialog.Init(model);
     }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Data
+namespace WheelOfFortune.Data
 {
     [CreateAssetMenu(menuName = "Create RewardAssetSO", fileName = "RewardAssetSO", order = 0)]
     public class RewardAssetSO : ScriptableObject

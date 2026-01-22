@@ -3,7 +3,7 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
-namespace Data.Editor
+namespace WheelOfFortune.Data.Editor
 {
     [CustomEditor(typeof(DataGeneratorConfigSO))]
     public class DataGeneratorConfigSOEditor : UnityEditor.Editor
@@ -44,9 +44,8 @@ namespace Data.Editor
         private static bool TryLoadRewardsAsset(out List<RewardAssetSO> rewardAssets)
         {
             var guids = AssetDatabase.FindAssets($"t:{nameof(RewardAssetSO)}");
-            rewardAssets = new List<RewardAssetSO>();
 
-            Debug.Log($"TryLoadRewardsAsset:guids = length : {guids?.Length}");
+            rewardAssets = new List<RewardAssetSO>();
 
             foreach (var guid in guids)
             {

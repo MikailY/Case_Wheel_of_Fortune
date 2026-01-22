@@ -1,7 +1,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace Data.Editor
+namespace WheelOfFortune.Data.Editor
 {
     [CustomEditor(typeof(WheelOfFortuneConfigSO))]
     public class WheelOfFortuneConfigSOEditor : UnityEditor.Editor
