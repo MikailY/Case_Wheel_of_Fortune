@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6796436613020843117}
   - component: {fileID: 8694345019262846991}
   m_Layer: 5
-  m_Name: SafeZoneContainerParent
+  m_Name: ui_panel_safe_zone_container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -69,7 +69,7 @@ GameObject:
   - component: {fileID: 3304643910613145842}
   - component: {fileID: 827030747097387108}
   m_Layer: 5
-  m_Name: WidgetLayoutMask
+  m_Name: ui_mask_layout
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 770403016988408739}
   - component: {fileID: 1541676857312622443}
   m_Layer: 5
-  m_Name: RewardsContainerParent
+  m_Name: ui_panel_rewards_container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 3111806439726575250}
   - component: {fileID: 8894525877884561506}
   m_Layer: 5
-  m_Name: RewardAnimationComponent
+  m_Name: ui_component_reward_animation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -235,7 +235,7 @@ GameObject:
   - component: {fileID: 4984627240025209569}
   - component: {fileID: 8159308449869372716}
   m_Layer: 5
-  m_Name: RewardsContainer
+  m_Name: ui_component_rewards_container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -344,7 +344,7 @@ GameObject:
   - component: {fileID: 3694960893840802236}
   - component: {fileID: 2001374574865686366}
   m_Layer: 5
-  m_Name: CardFrame
+  m_Name: ui_image_card_frame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -420,7 +420,7 @@ GameObject:
   - component: {fileID: 3037049435504567752}
   - component: {fileID: 1091145215775015326}
   m_Layer: 5
-  m_Name: CardFrame
+  m_Name: ui_image_card_frame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -495,7 +495,7 @@ GameObject:
   - component: {fileID: 586899383114314753}
   - component: {fileID: 229041313173345743}
   m_Layer: 5
-  m_Name: AnimationTarget
+  m_Name: ui_layout_vertical
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -561,7 +561,7 @@ GameObject:
   - component: {fileID: 1051484029269225985}
   - component: {fileID: 2542313134279577784}
   m_Layer: 5
-  m_Name: Icon
+  m_Name: ui_image_safe_zone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -638,7 +638,7 @@ GameObject:
   - component: {fileID: 3362478904766058071}
   - component: {fileID: 4350165411884195370}
   m_Layer: 5
-  m_Name: Viewport
+  m_Name: ui_scroll_viewport_rewards
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -728,7 +728,7 @@ GameObject:
   - component: {fileID: 6134650194701119039}
   - component: {fileID: 1988166555614661615}
   m_Layer: 5
-  m_Name: HorizontalLayout
+  m_Name: ui_layout_horizontal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -815,7 +815,7 @@ GameObject:
   - component: {fileID: 5564549605567456549}
   - component: {fileID: 2597735073929003290}
   m_Layer: 5
-  m_Name: Content
+  m_Name: ui_scroll_content_rewards
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -893,7 +893,7 @@ GameObject:
   - component: {fileID: 5484421156111560554}
   - component: {fileID: 44218157294634243}
   m_Layer: 5
-  m_Name: WidgetsLayout
+  m_Name: ui_layout_stage_widgets
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -973,7 +973,7 @@ GameObject:
   - component: {fileID: 1625461481218469972}
   - component: {fileID: 2975349610209265136}
   m_Layer: 5
-  m_Name: Scroll View
+  m_Name: ui_scroll_rewards
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1092,7 +1092,7 @@ GameObject:
   - component: {fileID: 3789437178376915873}
   - component: {fileID: 1385618378605472273}
   m_Layer: 5
-  m_Name: SpinLayout
+  m_Name: ui_panel_spin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1148,7 +1148,7 @@ GameObject:
   - component: {fileID: 4342743552213905764}
   - component: {fileID: 7055225915398948348}
   m_Layer: 5
-  m_Name: Counter
+  m_Name: ui_text_safe_zone_counter_value
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1283,7 +1283,7 @@ GameObject:
   - component: {fileID: 136178798733130283}
   - component: {fileID: 9182096364840985727}
   m_Layer: 5
-  m_Name: Counter
+  m_Name: ui_text_super_zone_counter_value
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1422,7 +1422,7 @@ GameObject:
   - component: {fileID: 7704212826100292311}
   - component: {fileID: 3134554887482630041}
   m_Layer: 5
-  m_Name: SafeZoneContainer
+  m_Name: ui_component_safe_zone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1556,7 +1556,7 @@ GameObject:
   - component: {fileID: 7161982969729176678}
   - component: {fileID: 6099489353925339742}
   m_Layer: 5
-  m_Name: StagesContainerParent
+  m_Name: ui_panel_stages_container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1615,7 +1615,7 @@ GameObject:
   - component: {fileID: 6427258472543274831}
   - component: {fileID: 6427258472543274816}
   m_Layer: 5
-  m_Name: SpinHeader
+  m_Name: ui_text_header_value
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1752,7 +1752,7 @@ GameObject:
   - component: {fileID: 6427258473189296766}
   - component: {fileID: 5029692443213791678}
   m_Layer: 5
-  m_Name: WheelofFortuneDialog
+  m_Name: ui_dialog_wheel_of_fortune
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1863,7 +1863,7 @@ GameObject:
   - component: {fileID: 6427258473759331944}
   - component: {fileID: 6427258473759331945}
   m_Layer: 5
-  m_Name: SpinIndicatorImage
+  m_Name: "\u0131i_image_spin_indicator_value"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1939,7 +1939,7 @@ GameObject:
   - component: {fileID: 6037362440701153317}
   - component: {fileID: 5887139223169543983}
   m_Layer: 5
-  m_Name: SpinContainer
+  m_Name: ui_component_spin_container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2038,7 +2038,7 @@ GameObject:
   - component: {fileID: 6427258474238713708}
   - component: {fileID: 6427258474238713709}
   m_Layer: 5
-  m_Name: CardFrame
+  m_Name: ui_image_card_frame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2114,7 +2114,7 @@ GameObject:
   - component: {fileID: 6427258474261744258}
   - component: {fileID: 6427258474261744259}
   m_Layer: 5
-  m_Name: SpinBaseImage
+  m_Name: ui_image_spin_base_value
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2198,7 +2198,7 @@ GameObject:
   - component: {fileID: 1141289236616345426}
   - component: {fileID: 2700781360290618840}
   m_Layer: 5
-  m_Name: Header
+  m_Name: ui_text_safe_zone_title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2337,7 +2337,7 @@ GameObject:
   - component: {fileID: 4815320810272295231}
   - component: {fileID: 7078897524234472106}
   m_Layer: 5
-  m_Name: SuperZoneContainer
+  m_Name: ui_component_super_zone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2472,7 +2472,7 @@ GameObject:
   - component: {fileID: 2511556947007104416}
   - component: {fileID: 6091975233343379402}
   m_Layer: 5
-  m_Name: Header
+  m_Name: ui_text_super_zone_title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2607,7 +2607,7 @@ GameObject:
   - component: {fileID: 9065144694686451983}
   - component: {fileID: 5324823121456805802}
   m_Layer: 5
-  m_Name: AmountText
+  m_Name: ui_text_amount_value
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2628,10 +2628,10 @@ RectTransform:
   m_Father: {fileID: 586899383114314753}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 99.99994, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 49.99997, y: -82.99327}
+  m_SizeDelta: {x: 99.99994, y: 34.013474}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9065144694686451983
 CanvasRenderer:
@@ -2744,7 +2744,7 @@ GameObject:
   - component: {fileID: 5941433329477734435}
   - component: {fileID: 2381886157910971197}
   m_Layer: 5
-  m_Name: StagesContainer
+  m_Name: ui_component_stages_container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2852,7 +2852,7 @@ GameObject:
   - component: {fileID: 5175366494097540897}
   - component: {fileID: 2852878655944971076}
   m_Layer: 5
-  m_Name: ExitButton
+  m_Name: ui_button_exit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2973,7 +2973,7 @@ GameObject:
   - component: {fileID: 6945429316073487153}
   - component: {fileID: 2877683452948587636}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: ui_text_title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3109,7 +3109,7 @@ GameObject:
   - component: {fileID: 3400548219345178575}
   - component: {fileID: 191727647927249197}
   m_Layer: 5
-  m_Name: SpinButton
+  m_Name: ui_button_spin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3228,7 +3228,7 @@ GameObject:
   - component: {fileID: 8316909665479955563}
   - component: {fileID: 5202931052342106771}
   m_Layer: 5
-  m_Name: SuperZoneContainerParent
+  m_Name: ui_panel_super_zone_container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3287,7 +3287,7 @@ GameObject:
   - component: {fileID: 8203414462489770913}
   - component: {fileID: 2783473195957511337}
   m_Layer: 5
-  m_Name: CurrentStageIndicator
+  m_Name: ui_image_current_stage_indicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3362,7 +3362,7 @@ GameObject:
   - component: {fileID: 7317941639418875482}
   - component: {fileID: 6822771716496196787}
   m_Layer: 5
-  m_Name: SpinContainerParent
+  m_Name: ui_panel_spin_container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3421,7 +3421,7 @@ GameObject:
   - component: {fileID: 1419367640043359813}
   - component: {fileID: 4630946451115727119}
   m_Layer: 5
-  m_Name: VerticalLayout
+  m_Name: ui_layout_vertical_counters
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3506,7 +3506,7 @@ GameObject:
   - component: {fileID: 8525719646025762}
   - component: {fileID: 2568719528344780033}
   m_Layer: 5
-  m_Name: VerticalLayout
+  m_Name: ui_layout_vertical_main
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3573,7 +3573,7 @@ GameObject:
   - component: {fileID: 9165113093819811213}
   - component: {fileID: 8282200991980246677}
   m_Layer: 5
-  m_Name: RewardImage
+  m_Name: ui_image_reward_value
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3594,10 +3594,10 @@ RectTransform:
   m_Father: {fileID: 586899383114314753}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 99.99994, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 49.99997, y: -37.993267}
+  m_SizeDelta: {x: 99.99994, y: 75.986534}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &892910440287936955
 CanvasRenderer:
@@ -3669,7 +3669,7 @@ GameObject:
   - component: {fileID: 7740085774566104399}
   - component: {fileID: 6418983321543261383}
   m_Layer: 5
-  m_Name: Icon
+  m_Name: ui_image_super_zone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3850,7 +3850,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7124221013093246541, guid: db768ca0e81047a42b62cb6ff0f52afb, type: 3}
       propertyPath: m_Name
-      value: WheelofFortuneWidget (4)
+      value: ui_widget_spin_container
       objectReference: {fileID: 0}
     - target: {fileID: 7379893551174316523, guid: db768ca0e81047a42b62cb6ff0f52afb, type: 3}
       propertyPath: m_AnchorMax.y
@@ -3875,10 +3875,6 @@ PrefabInstance:
     - target: {fileID: 7379893551174316523, guid: db768ca0e81047a42b62cb6ff0f52afb, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7813713975292172600, guid: db768ca0e81047a42b62cb6ff0f52afb, type: 3}
-      propertyPath: m_Name
-      value: Parent
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db768ca0e81047a42b62cb6ff0f52afb, type: 3}
@@ -3905,14 +3901,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6427258473189296767}
     m_Modifications:
-    - target: {fileID: 1198990309042808382, guid: 27d8aec3792e9a648b085339a9a52e42, type: 3}
-      propertyPath: m_Maskable
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1198990309042808382, guid: 27d8aec3792e9a648b085339a9a52e42, type: 3}
-      propertyPath: m_RaycastTarget
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4135433214660628728, guid: 27d8aec3792e9a648b085339a9a52e42, type: 3}
       propertyPath: m_Alpha
       value: 0
@@ -3927,7 +3915,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4888966687366170819, guid: 27d8aec3792e9a648b085339a9a52e42, type: 3}
       propertyPath: m_Name
-      value: MissionCompletedComponent
+      value: ui_component_mission_completed
       objectReference: {fileID: 0}
     - target: {fileID: 5384853439819856809, guid: 27d8aec3792e9a648b085339a9a52e42, type: 3}
       propertyPath: m_Pivot.x
@@ -4011,14 +3999,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5384853439819856809, guid: 27d8aec3792e9a648b085339a9a52e42, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8437704536483762257, guid: 27d8aec3792e9a648b085339a9a52e42, type: 3}
-      propertyPath: m_Maskable
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8437704536483762257, guid: 27d8aec3792e9a648b085339a9a52e42, type: 3}
-      propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -4156,7 +4136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7124221013093246541, guid: db768ca0e81047a42b62cb6ff0f52afb, type: 3}
       propertyPath: m_Name
-      value: WheelofFortuneWidget
+      value: ui_widget_spin_container
       objectReference: {fileID: 0}
     - target: {fileID: 7379893551174316523, guid: db768ca0e81047a42b62cb6ff0f52afb, type: 3}
       propertyPath: m_AnchorMax.y
@@ -4317,7 +4297,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7124221013093246541, guid: db768ca0e81047a42b62cb6ff0f52afb, type: 3}
       propertyPath: m_Name
-      value: WheelofFortuneWidget (5)
+      value: ui_widget_spin_container
       objectReference: {fileID: 0}
     - target: {fileID: 7379893551174316523, guid: db768ca0e81047a42b62cb6ff0f52afb, type: 3}
       propertyPath: m_AnchorMax.y
@@ -4342,10 +4322,6 @@ PrefabInstance:
     - target: {fileID: 7379893551174316523, guid: db768ca0e81047a42b62cb6ff0f52afb, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7813713975292172600, guid: db768ca0e81047a42b62cb6ff0f52afb, type: 3}
-      propertyPath: m_Name
-      value: Parent
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db768ca0e81047a42b62cb6ff0f52afb, type: 3}
@@ -4372,14 +4348,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6427258473189296767}
     m_Modifications:
-    - target: {fileID: 2025094028389956512, guid: 9f708077ba9fdcf4ea384e3bcef8f043, type: 3}
-      propertyPath: m_Maskable
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2025094028389956512, guid: 9f708077ba9fdcf4ea384e3bcef8f043, type: 3}
-      propertyPath: m_RaycastTarget
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3881326101164821862, guid: 9f708077ba9fdcf4ea384e3bcef8f043, type: 3}
       propertyPath: m_Alpha
       value: 0
@@ -4478,15 +4446,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5719613668618835293, guid: 9f708077ba9fdcf4ea384e3bcef8f043, type: 3}
       propertyPath: m_Name
-      value: BombNotificationComponent
-      objectReference: {fileID: 0}
-    - target: {fileID: 8764427694084607439, guid: 9f708077ba9fdcf4ea384e3bcef8f043, type: 3}
-      propertyPath: m_Maskable
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8764427694084607439, guid: 9f708077ba9fdcf4ea384e3bcef8f043, type: 3}
-      propertyPath: m_RaycastTarget
-      value: 0
+      value: ui_component_bomb_notification
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f708077ba9fdcf4ea384e3bcef8f043, type: 3}
@@ -4623,7 +4583,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7124221013093246541, guid: db768ca0e81047a42b62cb6ff0f52afb, type: 3}
       propertyPath: m_Name
-      value: WheelofFortuneWidget (6)
+      value: ui_widget_spin_container
       objectReference: {fileID: 0}
     - target: {fileID: 7379893551174316523, guid: db768ca0e81047a42b62cb6ff0f52afb, type: 3}
       propertyPath: m_AnchorMax.y
@@ -4648,10 +4608,6 @@ PrefabInstance:
     - target: {fileID: 7379893551174316523, guid: db768ca0e81047a42b62cb6ff0f52afb, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7813713975292172600, guid: db768ca0e81047a42b62cb6ff0f52afb, type: 3}
-      propertyPath: m_Name
-      value: Parent
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db768ca0e81047a42b62cb6ff0f52afb, type: 3}
@@ -4788,7 +4744,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7124221013093246541, guid: db768ca0e81047a42b62cb6ff0f52afb, type: 3}
       propertyPath: m_Name
-      value: WheelofFortuneWidget (2)
+      value: ui_widget_spin_container
       objectReference: {fileID: 0}
     - target: {fileID: 7379893551174316523, guid: db768ca0e81047a42b62cb6ff0f52afb, type: 3}
       propertyPath: m_AnchorMax.y
@@ -4813,10 +4769,6 @@ PrefabInstance:
     - target: {fileID: 7379893551174316523, guid: db768ca0e81047a42b62cb6ff0f52afb, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7813713975292172600, guid: db768ca0e81047a42b62cb6ff0f52afb, type: 3}
-      propertyPath: m_Name
-      value: Parent
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db768ca0e81047a42b62cb6ff0f52afb, type: 3}
@@ -4953,7 +4905,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7124221013093246541, guid: db768ca0e81047a42b62cb6ff0f52afb, type: 3}
       propertyPath: m_Name
-      value: WheelofFortuneWidget (1)
+      value: ui_widget_spin_container
       objectReference: {fileID: 0}
     - target: {fileID: 7379893551174316523, guid: db768ca0e81047a42b62cb6ff0f52afb, type: 3}
       propertyPath: m_AnchorMax.y
@@ -4978,10 +4930,6 @@ PrefabInstance:
     - target: {fileID: 7379893551174316523, guid: db768ca0e81047a42b62cb6ff0f52afb, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7813713975292172600, guid: db768ca0e81047a42b62cb6ff0f52afb, type: 3}
-      propertyPath: m_Name
-      value: Parent
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db768ca0e81047a42b62cb6ff0f52afb, type: 3}
@@ -5118,7 +5066,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7124221013093246541, guid: db768ca0e81047a42b62cb6ff0f52afb, type: 3}
       propertyPath: m_Name
-      value: WheelofFortuneWidget (3)
+      value: ui_widget_spin_container
       objectReference: {fileID: 0}
     - target: {fileID: 7379893551174316523, guid: db768ca0e81047a42b62cb6ff0f52afb, type: 3}
       propertyPath: m_AnchorMax.y
@@ -5143,10 +5091,6 @@ PrefabInstance:
     - target: {fileID: 7379893551174316523, guid: db768ca0e81047a42b62cb6ff0f52afb, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7813713975292172600, guid: db768ca0e81047a42b62cb6ff0f52afb, type: 3}
-      propertyPath: m_Name
-      value: Parent
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db768ca0e81047a42b62cb6ff0f52afb, type: 3}
@@ -5283,7 +5227,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7124221013093246541, guid: db768ca0e81047a42b62cb6ff0f52afb, type: 3}
       propertyPath: m_Name
-      value: WheelofFortuneWidget (7)
+      value: ui_widget_spin_container
       objectReference: {fileID: 0}
     - target: {fileID: 7379893551174316523, guid: db768ca0e81047a42b62cb6ff0f52afb, type: 3}
       propertyPath: m_AnchorMax.y
@@ -5308,10 +5252,6 @@ PrefabInstance:
     - target: {fileID: 7379893551174316523, guid: db768ca0e81047a42b62cb6ff0f52afb, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7813713975292172600, guid: db768ca0e81047a42b62cb6ff0f52afb, type: 3}
-      propertyPath: m_Name
-      value: Parent
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db768ca0e81047a42b62cb6ff0f52afb, type: 3}

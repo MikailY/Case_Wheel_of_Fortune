@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3357360371708663654}
   - component: {fileID: 6036445302092578288}
   m_Layer: 5
-  m_Name: RewardsContainerWidget
+  m_Name: ui_widget_rewards_container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -170,7 +170,7 @@ GameObject:
   - component: {fileID: 8814214507630075297}
   - component: {fileID: 2402874114944443638}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: ui_text_amount_value
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -251,7 +251,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45
+  m_fontSize: 36.65
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -306,7 +306,7 @@ GameObject:
   - component: {fileID: 3145073009420030601}
   - component: {fileID: 428368356384865115}
   m_Layer: 5
-  m_Name: Image
+  m_Name: ui_image_reward_value
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
