@@ -2,6 +2,19 @@
 
 A high-performance, scalable "Wheel of Fortune" game built in Unity 2021 LTS. This project was developed as a technical demo, focusing on clean code (SOLID), reusable UI architecture, and dynamic game configurations.
 
+---
+
+### 🎮 Gameplay Demonstration
+
+<p align="center"> 
+  <a href="https://www.youtube.com/watch?v=ey8qD7ySacQ"> 
+    <img src="https://img.youtube.com/vi/ey8qD7ySacQ/maxresdefault.jpg" alt="Watch Gameplay" width="600px">
+  </a>
+
+<em>Click above to watch the gameplay video</em> </p>
+
+---
+
 ### 📋 Project Overview
 The game is a "risk vs. reward" gambling mechanic where players spin wheels to collect rewards while avoiding the bomb.
 
@@ -10,6 +23,8 @@ The game is a "risk vs. reward" gambling mechanic where players spin wheels to c
   * **Standard Zones:** High risk with a bomb slice.
   * **Safe Zones (Every 5th):** Risk-free silver spin.
   * **Super Zones (Every 30th):** Risk-free golden spin with premium rewards.
+
+---
 
 ### 🛠️ Technical Implementation (The "Conditions")
 I have strictly followed the technical requirements provided in the brief:
@@ -26,17 +41,6 @@ I have strictly followed the technical requirements provided in the brief:
   * **Naming Convention:** Followed the ui_image_specifier and _value suffix rules.
   * **TextMeshPro:** Used for all text elements.
     
----
-
-### 🎮 Gameplay Demonstration
-
-<p align="center"> 
-  <a href="https://www.youtube.com/watch?v=ey8qD7ySacQ"> 
-    <img src="https://img.youtube.com/vi/ey8qD7ySacQ/maxresdefault.jpg" alt="Watch Gameplay" width="600px">
-  </a>
-
-<em>Click above to watch the gameplay video</em> </p>
-
 ---
 
 ### 📸 Multi-Aspect Ratio Screenshots
@@ -65,6 +69,8 @@ The UI is designed to be lean and compatible with different screen sizes:
 
 * **Source Code:** Available in this repository.
 * **Android Build:** [Download Latest APK (Release)](https://github.com/MikailY/Case_Wheel_of_Fortune/releases)
+
+---
 
 ### ⚙️ How to Run
 
